@@ -3,6 +3,7 @@ import {useRouter} from "next/router"
 
 const ImageList = ({data}) =>{
     const [datas, setDatas] = useState([])
+    const [image, setImages] = useState(0)
     const router = useRouter()
 
     useEffect(()=>{
@@ -10,20 +11,36 @@ const ImageList = ({data}) =>{
             setDatas(data.images)
         }
     }, [data])
-    console.log(data.images)
+
+    const clickLeftImage = () => {
+        console.log(image)
+        if(image>0){
+            setImages(image-1)
+        }
+    }
+    const clickRightImage = () => {
+        console.log(image, data.images.length)
+        if(data.images.length-1>image){
+            setImages(image+1)
+        }
+    }
 
     //https://drive.google.com/uc?id=
     return(
         <>
         <ul className="image-list">
-            {datas.length>0 &&
-            datas.map((data,i) => {
-                return(
-                    <p className="data" key={i}>
-                        <img src= {"https://drive.google.com/uc?id="+data.split("/")[5]}></img>
-                    </p>
-                )
-            })}
+            {(()=>{
+                if(datas.length>0){
+                    return(
+                        <p className="data" style={{display:"flex", alignItems:"center"}}>
+                            <button onClick={clickLeftImage} className="arrow-prev"></button>
+                            <img align="center" src= {"https://drive.google.com/uc?id="+datas[image].split("/")[5]} style={{width:"600px", height:"800px", objectFit:"contain"}}></img>
+                            <button onClick={clickRightImage} className="arrow-next"></button>
+                        </p>
+                    )
+                }
+
+            })()}
         </ul>
         </>
     )

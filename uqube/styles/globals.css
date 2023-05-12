@@ -4,6 +4,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color:#F2F2F2;
+  background-size:cover;
 }
 
 a {
@@ -20,3 +22,50 @@ img{
   height:300px;
   object-fit:contain;
 }
+.board-writer-container{
+  display:flex;
+  flex-direction:row;
+  align-items: center;
+  flex-wrap:wrap;
+}
+.board-writer{
+  flex-basis:auto;
+  margin-right:10px;
+}
+.arrow-prev,
+.arrow-next {
+    position: relative;
+    float:left;
+    width:50px;
+    height:50px;
+    margin-right:5px;
+    border:none;
+    background:none;
+}
+
+.arrow-prev::after {
+    position: absolute;
+    left: 17.5px; 
+    top: 10px;
+    content: '';
+    width: 25px; /* 사이즈 */
+    height: 25px; /* 사이즈 */
+    border-top: 3px solid #F2F2F2; /* 선 두께 */
+    border-right: 3px solid #F2F2F2; /* 선 두께 */
+    transform: rotate(225deg); /* 각도 */
+}
+
+.arrow-next::after {
+    position: absolute;
+    left: 5px; 
+    top: 10px; 
+    content: '';
+    width: 25px; /* 사이즈 */
+    height: 25px; /* 사이즈 */
+    border-top: 3px solid #F2F2F2; /* 선 두께 */
+    border-right: 3px solid #F2F2F2; /* 선 두께 */
+    transform: rotate(45deg); /* 각도 */
+}
+
+.close {display:inline-block;*display:inline; position:absolute;}
+.close:after {display: inline-block; align:right; position:absolute; left:350px; content: "\00d7"; font-size:20pt; color:#767676;}

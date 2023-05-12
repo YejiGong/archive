@@ -49,9 +49,36 @@ const CommentList = ({data}) =>{
             datas.map((data,i) => {
                 return(
                     <p className="data" key={i}>
-                        <p>{data[0]}</p>
+                        <div className="board-writer-container" style={{marginLeft:"5%"}}>
+                            <div className="board-writer" style={{width:"45px", height:"45px", borderRadius:"70%", border:"1px solid #B9B7B0", overflow:"hidden", marginTop:"10px"}}>
+                                {(()=>{
+                                    if(data[0].substr(-2)=="홍석"){
+                                        return <img src="/images/pentagon_홍석.jpeg" style={{width:"100%", height:"100%", objectFit:"cover"}}></img>
+                                    }else if (data[0].substr(-2)=="신원"){
+                                        return <img src="/images/pentagon_신원.jpeg" style={{width:"100%", height:"100%", objectFit:"cover"}}></img>
+                                    }else{
+                                        return <img src="/images/basic.png" style={{width:"100%", height:"100%", objectFit:"cover"}}></img>
+                                    }
+                                })()}
+                                </div>
+                            <div className="board-writer" style={{height:"45px"}}>
+                                <div style={{display:"flex", alignItems:"center", height:"10px", marginTop:"18px"}}>
+                                    <div style={{height:"20px", width:"60px", marginRight:"7px", borderRadius:"20px", overflow:"hidden", border:"1px solid #376BB6", color:"#376BB6", textAlign:"center", fontSize:"15px"}}>
+                                        Artist
+                                    </div>
+                                    <p>{data[0].substr(7)}</p>
+                                </div>
+                                <p style={{color:"#767676", fontSize:"15px", paddingRight:"50%"}}>{data[1]}</p>
+                            </div>
+                            <div style={{flexBasis:"100%"}}></div>
+                                <div className="board-writer">
+                                <p style={{marginBottom:"30px", textAlign:"left"}}>{data[2]}</p>
+                            </div>
+                    </div>
+                    <hr style={{marginRight:"20px", border:"thin solid #F2F2F2"}}/>
+                        {/* <p>{data[0]}</p>
                         <p>{data[1]}</p>
-                        <p>{data[2]}</p>
+                        <p>{data[2]}</p> */}
                     </p>
                 )
             })}

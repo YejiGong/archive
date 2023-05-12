@@ -2,9 +2,17 @@ import BoardList from '../components/Board';
 
 const LetterBoard = ({data}) => {
     return(
-        <div className = "letter-board">
-            <BoardList data = {data}/>
+        <>
+        <div align="center" style={{backgroundColor:"#F2F2F2"}}>
+        <div algin="center" style={{width:"800px", backgroundColor:"white"}}>
+        <img src="/images/main.jpg" style={{width:"800px", height:"400px", objectFit:"cover", backgroundColor:"gray"}}></img>
+      
+            <div className = "letter-board">
+                <BoardList data = {data}/>
+            </div>
         </div>
+        </div>
+        </>
     )
 }
 
