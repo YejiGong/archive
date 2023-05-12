@@ -83,7 +83,7 @@ const BoardList = ({data}) =>{
                             <div style={{flexBasis:"100%"}}></div>
                                 <div className="board-writer">
                                 <Link href={{pathname:"/BoardPage",query:{id:data._id}}}>
-                                <p style={{marginBottom:"30px"}}>{data.contents}</p>
+                                <p style={{marginBottom:"30px", whiteSpace:"pre-line"}}>{data.contents}</p>
                                 </Link>
                                 {(()=>{
                                     if(data.images && data.images.length>0){

@@ -6,7 +6,6 @@ import Link from 'next/link';
 
 const BoardPage = ({data}) =>{
     const [showComment, setComment] = useState(true)
-    console.log(String(JSON.parse(data.datas).contents))
     const clickComment=()=>{
         setComment(!showComment)
         var el_1 = document.getElementById("cmt_btn")
@@ -52,7 +51,7 @@ const BoardPage = ({data}) =>{
                             </div>
                             <div style={{flexBasis:"100%"}}></div>
                                 <div className="board-writer">
-                                <p style={{marginBottom:"30px", textAlign:"left"}}>String({JSON.parse(data.datas).contents})</p>
+                                <p style={{marginBottom:"30px", textAlign:"left", whiteSpace:"pre-line"}}>{JSON.parse(data.datas).contents}</p>
                                 <ImageList data={JSON.parse(data.datas)}></ImageList>
                             </div>
                     </div>
