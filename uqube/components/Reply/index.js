@@ -53,7 +53,7 @@ const ReplyList = ({data}) =>{
                     <p className="data" key={i}>
                         {data.map((d, j)=>
                         
-                        <p>
+                        <p key={j}>
                             {(()=>{
                             if(j==0){
                                 mrg="5%"
