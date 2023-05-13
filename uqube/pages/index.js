@@ -13,6 +13,7 @@ export default function Home(){
       <div algin="center" style={{width:"800px", backgroundColor:"white"}}>
       <Image src="/images/main.jpg" width="800" height="400" style={{width:"800px", height:"400px", objectFit:"cover", backgroundColor:"gray"}}></Image>
         <Link href="/LetterBoard">Letter</Link>
+        <Link href="/MediaBoard">Media</Link>
       </div>
     </div>
     </>
