@@ -1,11 +1,12 @@
 import BoardList from '../components/Board';
+import Image from 'next/image';
 
 const LetterBoard = ({data}) => {
     return(
         <>
         <div align="center" style={{backgroundColor:"#F2F2F2"}}>
         <div algin="center" style={{width:"800px", backgroundColor:"white"}}>
-        <img src="/images/main.jpg" style={{width:"800px", height:"400px", objectFit:"cover", backgroundColor:"gray"}}></img>
+        <Image src="/images/main.jpg" width="800" height="400" style={{width:"800px", height:"400px", objectFit:"cover", backgroundColor:"gray"}}></Image>
       
             <div className = "letter-board">
                 <BoardList data = {data}/>

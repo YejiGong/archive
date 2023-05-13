@@ -4,7 +4,7 @@ import {MongoClient} from 'mongodb';
 
 export default async function mediahandler(req, res){
     const curPage = req.query.page || 1
-    const perPage = 10
+    const perPage = 5
     const data = []
     const client = await MongoClient.connect(process.env.MONGODB_URI)
     const db = client.db("Cluster0")

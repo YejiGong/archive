@@ -3,6 +3,7 @@ import { useState } from 'react';
 import ImageList from '../components/Image';
 import ReplyList from '../components/Reply';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const MediaBoardPage = ({data}) =>{
     var idx = JSON.parse(data.datas).content.indexOf("\n")

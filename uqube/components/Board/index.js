@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react"
 import {useRouter} from "next/router"
 import Link from "next/link"
+import Image from "next/image"
 
 const BoardList = ({data}) =>{
     const [datas, setDatas] = useState([])
@@ -87,7 +88,7 @@ const BoardList = ({data}) =>{
                                 </Link>
                                 {(()=>{
                                     if(data.images && data.images.length>0){
-                                        return <img align="center" src={"https://drive.google.com/uc?id="+String(data.images[0]).split("/")[5]} style={{width:"700px", height:"500px", objectFit:"cover", objectPosition:"50% 50%"}}/>
+                                        return <img width="700" height="500" align="center" src={"https://drive.google.com/uc?id="+String(data.images[0]).split("/")[5]} style={{width:"700px", height:"500px", objectFit:"cover", objectPosition:"50% 50%"}}/>
                                     }
                                 })()}
                             </div>

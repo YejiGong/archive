@@ -1,11 +1,12 @@
 import MediaBoardList from '../components/MediaBoard';
+import Image from 'next/image';
 
 const MediaBoard = ({data}) => {
     return(
         <>
         <div align="center" style={{backgroundColor:"#F2F2F2"}}>
         <div algin="center" style={{width:"800px", backgroundColor:"white"}}>
-        <img src="/images/main.jpg" style={{width:"800px", height:"400px", objectFit:"cover", backgroundColor:"gray"}}></img>
+        <Image src="/images/main.jpg" style={{width:"800px", height:"400px", objectFit:"cover", backgroundColor:"gray"}}></Image>
       
             <div className = "letter-board">
                 <MediaBoardList data = {data}/>
