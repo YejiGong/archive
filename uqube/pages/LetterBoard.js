@@ -1,3 +1,4 @@
+import Header from '../components/Header';
 import BoardList from '../components/Board';
 import Image from 'next/image';
 
@@ -6,9 +7,8 @@ const LetterBoard = ({data}) => {
         <>
         <div align="center" style={{backgroundColor:"#F2F2F2"}}>
         <div algin="center" style={{width:"800px", backgroundColor:"white"}}>
-        <Image src="/images/main.jpg" width="800" height="400" style={{width:"800px", height:"400px", objectFit:"cover", backgroundColor:"gray"}}></Image>
-      
-            <div className = "letter-board">
+            <Header/>
+        <div className = "letter-board">
                 <BoardList data = {data}/>
             </div>
         </div>

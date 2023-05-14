@@ -3,19 +3,19 @@ import {useInfiniteQuery} from "react-query";
 import axios from "axios"
 import useLocalStorage from "use-local-storage"
 import LetterBoard from "./LetterBoard";
+import MediaBoard from "./MediaBoard";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Header from "../components/Header";
 
-export default function Home(){
+
+const Home=()=>{
   return(
     <>
-    <div align="center" style={{backgroundColor:"#F2F2F2"}}>
-      <div algin="center" style={{width:"800px", backgroundColor:"white"}}>
-      <Image src="/images/main.jpg" width="800" height="400" style={{width:"800px", height:"400px", objectFit:"cover", backgroundColor:"gray"}}></Image>
-        <Link href="/LetterBoard">Letter</Link>
-        <Link href="/MediaBoard">Media</Link>
-      </div>
-    </div>
+    <Header></Header>
     </>
   )
 }
+
+export default Home;

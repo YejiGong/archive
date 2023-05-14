@@ -1,3 +1,4 @@
+import Header from '../components/Header';
 import MediaBoardList from '../components/MediaBoard';
 import Image from 'next/image';
 
@@ -6,9 +7,8 @@ const MediaBoard = ({data}) => {
         <>
         <div align="center" style={{backgroundColor:"#F2F2F2"}}>
         <div algin="center" style={{width:"800px", backgroundColor:"white"}}>
-        <Image src="/images/main.jpg" style={{width:"800px", height:"400px", objectFit:"cover", backgroundColor:"gray"}}></Image>
-      
-            <div className = "letter-board">
+        <Header/>
+        <div className = "letter-board">
                 <MediaBoardList data = {data}/>
             </div>
         </div>
