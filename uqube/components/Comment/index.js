@@ -41,7 +41,6 @@ const CommentList = ({data}) =>{
         }
     }
 
-    console.log(datas)
     
     return(
         <>

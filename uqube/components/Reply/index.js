@@ -8,11 +8,9 @@ const ReplyList = ({data}) =>{
 
     useEffect(()=>{
         if(Object.keys(data)){
-            console.log("set data")
             setDatas(Object.values(data))
         }
     }, [data])
-    console.log("data", data)
 
     useEffect(()=>{
         window.addEventListener("scroll", handleScroll)

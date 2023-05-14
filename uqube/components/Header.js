@@ -5,7 +5,6 @@ import styles from '../styles/Header.module.css'
 
 const Header = () =>{
     const router = useRouter();
-    console.log(router.pathname)
     return(
         <div align="center" style={{backgroundColor:"#F2F2F2"}}>
             <div algin="center" style={{width:"800px", backgroundColor:"white"}}>

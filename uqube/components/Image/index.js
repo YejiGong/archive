@@ -14,13 +14,11 @@ const ImageList = ({data}) =>{
     }, [data])
 
     const clickLeftImage = () => {
-        console.log(image)
         if(image>0){
             setImages(image-1)
         }
     }
     const clickRightImage = () => {
-        console.log(image, data.images.length)
         if(data.images.length-1>image){
             setImages(image+1)
         }
