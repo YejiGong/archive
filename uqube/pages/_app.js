@@ -6,7 +6,8 @@ function MyApp({ Component, pageProps }) {
     <>
     <Head>
       <title>UCUBE</title>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width"></meta>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=yes"></meta>
+      <meta name="apple-mobile-web-app-capable" content="yes"></meta>
     </Head>
       <Component {...pageProps} />
     </>
