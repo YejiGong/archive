@@ -8,16 +8,18 @@ const BoardList = ({data}) =>{
     const router = useRouter()
     
     useEffect(()=>{
-        if(data){
-            setDatas(data.datas)
-        }
-    }, [data])
-    useEffect(()=>{
         if("scrollKey" in sessionStorage){
             window.scrollTo(0,sessionStorage.getItem("scrollKey"))
             sessionStorage.removeItem("scrollKey")
         }
-        })
+    })
+    
+    useEffect(()=>{
+        if(data){
+            setDatas(data.datas)
+        }
+    }, [data])
+    
 
     useEffect(()=>{
         window.addEventListener("scroll", handleScroll)
@@ -32,6 +34,9 @@ const BoardList = ({data}) =>{
         const lastDataLoaded = document.querySelector(
             ".board-list> .data:last-child"
         )
+        if(window.scrollY!=0){
+            sessionStorage.setItem("scrollKey", window.scrollY)
+        }
         
         if (lastDataLoaded){
             const lastDataLoadedOffset =
@@ -41,8 +46,6 @@ const BoardList = ({data}) =>{
                 if(data.curPage<data.maxPage){
                     const query = router.query
                     query.page = parseInt(data.curPage) + 1
-                    sessionStorage.setItem("scrollKey", window.scrollY)
-                    
                     router.push({
                         pathname:router.pathname,
                         query:query
