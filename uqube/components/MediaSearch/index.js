@@ -3,22 +3,20 @@ import {useRouter} from "next/router"
 import Link from "next/link"
 import Image from "next/image"
 
-const MediaBoardList = ({data}) =>{
+const MediaSearchList = ({data}) =>{
     const [datas, setDatas] = useState([])
     const router = useRouter()
-    
-    useEffect(()=>{
-        if(data){
-            setDatas(data.datas)
-        }
-    }, [data])
     useEffect(()=>{
         if("scrollKey" in sessionStorage){
             window.scrollTo(0,sessionStorage.getItem("scrollKey"))
             sessionStorage.removeItem("scrollKey")
         }
     })
-
+    useEffect(()=>{
+        if(data){
+            setDatas(data.datas[0])
+        }
+    }, [data])
     useEffect(()=>{
         window.addEventListener("scroll", handleScroll)
         return()=>{
@@ -32,32 +30,32 @@ const MediaBoardList = ({data}) =>{
         const lastDataLoaded = document.querySelector(
             ".board-list> .data:last-child"
         )
+        if(window.scrollY!=0){
+            sessionStorage.setItem("scrollKey", window.scrollY)
+        }
         
         if (lastDataLoaded){
             const lastDataLoadedOffset =
             lastDataLoaded.offsetTop + lastDataLoaded.clientHeight
             const pageOffset = window.pageYOffset + window.innerHeight
             if(pageOffset>lastDataLoadedOffset){
-                if(data.curPage<data.maxPage){
                     const query = router.query
                     query.page = parseInt(data.curPage) + 1
-                    sessionStorage.setItem("scrollKey", window.scrollY)
-                    
                     router.push({
                         pathname:router.pathname,
                         query:query
                     })
-                    
-                }
             }
         }
     }
-    
     return(
+
         <>
-        <ul className="board-list">
-            {datas.length>0 &&
-            datas.map((data,i) => {
+        <ul className="board-list" style={{height:"100%"}}>
+            {datas.length===0 ? (
+                <p style={{height:"300px"}}><div style={{marginTop:"200px", marginRight:"40px"}}>검색 결과가 없습니다.</div></p>
+                
+            ): datas.map((data,i) => {
                 return(
                     <p className="data" key={i} align="left">
                         <div className="board-writer-container">
@@ -94,4 +92,4 @@ const MediaBoardList = ({data}) =>{
 
 
 
-export default MediaBoardList
+export default MediaSearchList

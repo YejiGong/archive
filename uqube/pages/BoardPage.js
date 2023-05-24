@@ -1,11 +1,13 @@
 import CommentList from '../components/Comment';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import ImageList from '../components/Image';
 import ReplyList from '../components/Reply';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const BoardPage = ({data}) =>{
+    const router = useRouter();
     const [showComment, setComment] = useState(true)
     const clickComment=()=>{
         setComment(!showComment)
@@ -28,7 +30,7 @@ const BoardPage = ({data}) =>{
     return(
         <div style={{backgroundColor:"#F2F2F2", height:"100%"}} align="center">
             <div style={{backgroundColor:"white", width:"800px", height:"100%"}}>
-                <Link align="right" className="close" href="/LetterBoard"></Link>
+                <div align="right" className="close" onClick={()=>router.back()}></div>
                 <div className="board-writer-container" style={{marginLeft:"5%", paddingTop:"8%"}}>
                             <div className="board-writer" style={{width:"45px", height:"45px", borderRadius:"70%", border:"1px solid #B9B7B0", overflow:"hidden", marginTop:"25px"}}>
                                 {(()=>{

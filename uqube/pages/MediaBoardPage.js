@@ -1,16 +1,18 @@
 import CommentList from '../components/Comment';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import ImageList from '../components/Image';
 import ReplyList from '../components/Reply';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const MediaBoardPage = ({data}) =>{
+    const router = useRouter();
     var idx = JSON.parse(data.datas).content.indexOf("\n")
     return(
         <div style={{backgroundColor:"#F2F2F2", height:"100%"}} align="center">
             <div style={{backgroundColor:"white", width:"800px", height:"100%"}}>
-                <Link align="right" className="close" href="/MediaBoard"></Link>
+            <div align="right" className="close" onClick={()=>router.back()}></div>
                 <div className="board-writer-container" style={{marginLeft:"5%", paddingTop:"8%"}}>
                             <div style={{height:"20px", width:"130px", marginRight:"7px", borderRadius:"20px", overflow:"hidden", border:"1px solid #376BB6", color:"#376BB6", textAlign:"center", fontSize:"15px"}}>
                                                     {JSON.parse(data.datas).category}
