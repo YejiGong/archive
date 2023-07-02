@@ -32,6 +32,9 @@ const MediaBoardList = ({data}) =>{
         const lastDataLoaded = document.querySelector(
             ".board-list> .data:last-child"
         )
+        if(window.scrollY!=0){
+            sessionStorage.setItem("scrollKey", window.scrollY)
+        }
         
         if (lastDataLoaded){
             const lastDataLoadedOffset =
@@ -41,8 +44,6 @@ const MediaBoardList = ({data}) =>{
                 if(data.curPage<data.maxPage){
                     const query = router.query
                     query.page = parseInt(data.curPage) + 1
-                    sessionStorage.setItem("scrollKey", window.scrollY)
-                    
                     router.push({
                         pathname:router.pathname,
                         query:query

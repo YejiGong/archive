@@ -33,6 +33,13 @@ const MediaBoardPage = ({data}) =>{
                                 <hr style={{marginRight:"20px", border:"thin solid #767676"}}/>
                                 <p style={{textAlign:"left", whiteSpace:"pre-line"}}>{JSON.parse(data.datas).content.slice(idx+1)}</p>
                                 <ImageList data={JSON.parse(data.datas)} style={{margin:"auto"}}></ImageList>
+                                {(()=>{
+                                    if(JSON.parse(data.datas).video){
+
+                                        return<a href={JSON.parse(data.datas).video}
+                                      >link</a>
+                                        }
+                                })()}
                             </div>
                     </div>
                     <hr style={{marginRight:"20px", border:"thin solid #F2F2F2"}}/>
